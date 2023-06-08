@@ -19,13 +19,13 @@
     <div class="form-group container tuyenSinh global">
         <h1>Quản Lý Tuyển Sinh</h1>
         <label for="">Môn Toán</label>
-        <input type="number" id="monToan" class="form-control" placeholder="nhập điểm môn Toán....">
+        <input type="number" id="monToan" class="form-control" min="0" max="10" placeholder="nhập điểm môn Toán....">
         <label for="">Môn Văn</label>
-        <input type="number" id="monVan" class="form-control" placeholder="nhập điểm môn Văn....">
+        <input type="number" id="monVan" class="form-control" min="0" max="10" placeholder="nhập điểm môn Văn....">
         <label for="">Môn Anh</label>
-        <input type="number" id="monAnh" class="form-control" placeholder="nhập điểm môn Anh....">
+        <input type="number" id="monAnh" class="form-control" min="0" max="10" placeholder="nhập điểm môn Anh....">
         <label for="">Điểm Chuẩn Của Trường...</label>
-        <input type="number" id="diemChuan" class="form-control" placeholder="nhập điểm chuẩn của trường....">
+        <input type="number" id="diemChuan" class="form-control" min="0" max="30" placeholder="nhập điểm chuẩn của trường....">
         <div class="form-group">
             <label> Chọn Khu Vực Ưu Tiên </label>
             <select class="form-control" id="khuVucUT">
@@ -44,7 +44,8 @@
                 <option value="0">Không Thuộc Đối Tượng Ưu Tiên</option>
             </select>
         </div>
-        <button id="btnTinhDiem" class="btn btn-success">Tính Điểm Và Cho Kết Quả</button>
+        <button id="btnTinhDiem" class="btn btn-success" onclick="tinhDiemTuyenSinh()">Tính Điểm Và Cho Kết Quả</button>
+        <div id="xuatDiemThiSinh"></div>
     </div>
     <!-- Tính Tiền Điện -->
 
@@ -54,7 +55,8 @@
         <input type="text" id="tenHo" class="form-control" placeholder="vd: Nguyễn Văn A">
         <label for="">Số KW Sử Dụng</label>
         <input type="text" id="soKw" class="form-control" placeholder="Nhập Số KW sử dụng">
-        <button id="btnTienDien" class="btn btn-primary">Tính Tiền Điện</button>
+        <button id="btnTienDien" class="btn btn-primary" onclick="tinhTienDien()">Tính Tiền Điện</button>
+        <div id="xuatTienDien"></div>
     </div>
     <!-- Tính Thuế Thu Nhập Cá Nhân -->
 
@@ -62,11 +64,12 @@
         <h1>Tính Thuế Thu Nhập Cá Nhân</h1>
         <label for="">Họ Và Tên</label>
         <input type="text" id="hoVaTen" class="form-control" placeholder="vd: Nguyễn Văn Bé">
-        <label for="">Tổng Thu Nhập Năm (nhập đơn vị triệu)</label>
-        <input type="number" id="thuNhapNam" class="form-control" placeholder="vd: 60 ( tức 60.000.000vnđ)">
+        <label for="">Tổng Thu Nhập Năm (nhập đơn vị triệu đồng)</label>
+        <input type="number" id="thuNhapNam" class="form-control" placeholder="vd: 60 (tức 60tr)">
         <label for="">Số Người Phụ Thuộc</label>
-        <input type="number" id="soNguoiPhuThuoc" class="form-control" placeholder="vd: 3 (tức 3 người)">
-        <button id="btnThue" class="btn btn-danger">Thuế Thu Nhập Cá Nhân Phải Trả</button>
+        <input type="number" id="soNguoiPhuThuoc" class="form-control" min="0" max="10"  placeholder="vd: 3 (tức 3 người)">
+        <button id="btnThue" class="btn btn-danger" onclick="thueCaNhan()">Thuế Thu Nhập Cá Nhân Phải Trả</button>
+        <div id="xuatThueCaNhan"></div>
     </div>
     <!-- Tính Tiền Cáp -->
 
@@ -84,7 +87,8 @@
         <label for="">Số Kết Nối</label>
         <input type="number" id="soKetNoi" class="form-control" placeholder="vd: 5 (tức có 5 kết nối)">
         <label for="">Số Kênh Cao Cấp (dành cho doanh nghiệp)</label>
-        <input type="number" id="soKenhCaoCap" class="form-control" placeholder="vd: 13 (tức có 13 kênh, tối thiểu là 10 )">
+        <input type="number" id="soKenhCaoCap" class="form-control"
+            placeholder="vd: 13 (tức có 13 kênh, tối thiểu là 10 )">
         <button id="btnTienCap" class="btn btn-info">Tiền Cáp Cần Phải Trả</button>
     </div>
     <!-- Optional JavaScript -->
