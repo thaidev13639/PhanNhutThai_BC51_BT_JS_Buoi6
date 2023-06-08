@@ -1,0 +1,35 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+/* Tuyển Sinh */
+.global{
+    border: 1px solid red;
+    padding: 50px;
+    margin-top: 50px;
+}
+.global h1{
+    text-align: center;
+    color: red;
+    font-size: 50px;
+}
+.global label{
+    font-weight: 700;
+    font-size: 20px;
+    margin: 0 5px;
+}
+.global input{
+    margin-bottom: 15px;
+}
+.global button{
+    background-color: skyblue;
+    width: 50%;
+    margin: 30px auto;
+    font-size: 25px;
+}
+.global .form-control{
+    width: 50%;
+}

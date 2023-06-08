@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- My CSS -->
+    <link rel="stylesheet" href="./CSS/index.css">
+</head>
+
+<body>
+    <!-- Quản Lý Tuyển Sinh -->
+    <div class="form-group container tuyenSinh global">
+        <h1>Quản Lý Tuyển Sinh</h1>
+        <label for="">Môn Toán</label>
+        <input type="number" id="monToan" class="form-control" placeholder="nhập điểm môn Toán....">
+        <label for="">Môn Văn</label>
+        <input type="number" id="monVan" class="form-control" placeholder="nhập điểm môn Văn....">
+        <label for="">Môn Anh</label>
+        <input type="number" id="monAnh" class="form-control" placeholder="nhập điểm môn Anh....">
+        <label for="">Điểm Chuẩn Của Trường...</label>
+        <input type="number" id="diemChuan" class="form-control" placeholder="nhập điểm chuẩn của trường....">
+        <div class="form-group">
+            <label> Chọn Khu Vực Ưu Tiên </label>
+            <select class="form-control" id="khuVucUT">
+                <option value="A">Khu Vực A</option>
+                <option value="B">Khu Vực B</option>
+                <option value="C">Khu Vực C</option>
+                <option value="X">Không Thuộc Khu Vực Ưu Tiên</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label> Chọn Đối Tượng Ưu Tiên</label>
+            <select class="form-control" id="doiTuongUT">
+                <option value="1">Đối Tượng 1</option>
+                <option value="2">Đối Tượng 2</option>
+                <option value="3">Đối Tượng 3</option>
+                <option value="0">Không Thuộc Đối Tượng Ưu Tiên</option>
+            </select>
+        </div>
+        <button id="btnTinhDiem" class="btn btn-success">Tính Điểm Và Cho Kết Quả</button>
+    </div>
+    <!-- Tính Tiền Điện -->
+
+    <div class="form-group container tienDien global">
+        <h1>Tính Tiền Điện</h1>
+        <label for="">Họ Và Tên Chủ Hộ</label>
+        <input type="text" id="tenHo" class="form-control" placeholder="vd: Nguyễn Văn A">
+        <label for="">Số KW Sử Dụng</label>
+        <input type="text" id="soKw" class="form-control" placeholder="Nhập Số KW sử dụng">
+        <button id="btnTienDien" class="btn btn-primary">Tính Tiền Điện</button>
+    </div>
+    <!-- Tính Thuế Thu Nhập Cá Nhân -->
+
+    <div class="form-group container thueCaNhan global">
+        <h1>Tính Thuế Thu Nhập Cá Nhân</h1>
+        <label for="">Họ Và Tên</label>
+        <input type="text" id="hoVaTen" class="form-control" placeholder="vd: Nguyễn Văn Bé">
+        <label for="">Tổng Thu Nhập Năm (nhập đơn vị triệu)</label>
+        <input type="number" id="thuNhapNam" class="form-control" placeholder="vd: 60 ( tức 60.000.000vnđ)">
+        <label for="">Số Người Phụ Thuộc</label>
+        <input type="number" id="soNguoiPhuThuoc" class="form-control" placeholder="vd: 3 (tức 3 người)">
+        <button id="btnThue" class="btn btn-danger">Thuế Thu Nhập Cá Nhân Phải Trả</button>
+    </div>
+    <!-- Tính Tiền Cáp -->
+
+    <div class="form-group container tienCap global">
+        <h1>Tính Tiền Cáp</h1>
+        <label for="">Mã Khách Hàng</label>
+        <input type="text" id="maKH" class="form-control" placeholder="vd: KH0315">
+        <div class="form-group">
+            <label> Loại Khách Hàng </label>
+            <select class="form-control" id="loaiKH">
+                <option value="nhaDan">Nhà Dân</option>
+                <option value="doanhNghiep">Doanh Nghiệp</option>
+            </select>
+        </div>
+        <label for="">Số Kết Nối</label>
+        <input type="number" id="soKetNoi" class="form-control" placeholder="vd: 5 (tức có 5 kết nối)">
+        <label for="">Số Kênh Cao Cấp (dành cho doanh nghiệp)</label>
+        <input type="number" id="soKenhCaoCap" class="form-control" placeholder="vd: 13 (tức có 13 kênh, tối thiểu là 10 )">
+        <button id="btnTienCap" class="btn btn-info">Tiền Cáp Cần Phải Trả</button>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <!-- My Javascript -->
+    <script src="./JS/main.js"></script>
+</body>
+
+</html>
