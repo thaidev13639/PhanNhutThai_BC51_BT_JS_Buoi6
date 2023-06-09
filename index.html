@@ -25,7 +25,8 @@
         <label for="">Môn Anh</label>
         <input type="number" id="monAnh" class="form-control" min="0" max="10" placeholder="nhập điểm môn Anh....">
         <label for="">Điểm Chuẩn Của Trường...</label>
-        <input type="number" id="diemChuan" class="form-control" min="0" max="30" placeholder="nhập điểm chuẩn của trường....">
+        <input type="number" id="diemChuan" class="form-control" min="0" max="30"
+            placeholder="nhập điểm chuẩn của trường....">
         <div class="form-group">
             <label> Chọn Khu Vực Ưu Tiên </label>
             <select class="form-control" id="khuVucUT">
@@ -45,7 +46,7 @@
             </select>
         </div>
         <button id="btnTinhDiem" class="btn btn-success" onclick="tinhDiemTuyenSinh()">Tính Điểm Và Cho Kết Quả</button>
-        <div id="xuatDiemThiSinh"></div>
+        <div id="xuatDiemThiSinh" class="globalPrint"></div>
     </div>
     <!-- Tính Tiền Điện -->
 
@@ -56,7 +57,7 @@
         <label for="">Số KW Sử Dụng</label>
         <input type="text" id="soKw" class="form-control" placeholder="Nhập Số KW sử dụng">
         <button id="btnTienDien" class="btn btn-primary" onclick="tinhTienDien()">Tính Tiền Điện</button>
-        <div id="xuatTienDien"></div>
+        <div id="xuatTienDien" class="globalPrint"></div>
     </div>
     <!-- Tính Thuế Thu Nhập Cá Nhân -->
 
@@ -67,9 +68,10 @@
         <label for="">Tổng Thu Nhập Năm (nhập đơn vị triệu đồng)</label>
         <input type="number" id="thuNhapNam" class="form-control" placeholder="vd: 60 (tức 60tr)">
         <label for="">Số Người Phụ Thuộc</label>
-        <input type="number" id="soNguoiPhuThuoc" class="form-control" min="0" max="10"  placeholder="vd: 3 (tức 3 người)">
+        <input type="number" id="soNguoiPhuThuoc" class="form-control" min="0" max="10"
+            placeholder="vd: 3 (tức 3 người)">
         <button id="btnThue" class="btn btn-danger" onclick="thueCaNhan()">Thuế Thu Nhập Cá Nhân Phải Trả</button>
-        <div id="xuatThueCaNhan"></div>
+        <div id="xuatThueCaNhan" class="globalPrint"></div>
     </div>
     <!-- Tính Tiền Cáp -->
 
@@ -80,16 +82,18 @@
         <div class="form-group">
             <label> Loại Khách Hàng </label>
             <select class="form-control" id="loaiKH">
-                <option value="nhaDan">Nhà Dân</option>
-                <option value="doanhNghiep">Doanh Nghiệp</option>
+                <option id="nhaDan" value="ND">Nhà Dân</option>
+                <option id="doanhNghiep" value="DN">Doanh Nghiệp</option>
             </select>
         </div>
         <label for="">Số Kết Nối</label>
-        <input type="number" id="soKetNoi" class="form-control" placeholder="vd: 5 (tức có 5 kết nối)">
+        <div id="divKetNoi">
+            <input type="number" id="soKetNoi" class="form-control" placeholder="vd: 15 (tức 15 kết nối và tối thiểu là 10 kết nối)">
+        </div>
         <label for="">Số Kênh Cao Cấp (dành cho doanh nghiệp)</label>
-        <input type="number" id="soKenhCaoCap" class="form-control"
-            placeholder="vd: 13 (tức có 13 kênh, tối thiểu là 10 )">
-        <button id="btnTienCap" class="btn btn-info">Tiền Cáp Cần Phải Trả</button>
+        <input type="number" id="soKenhCaoCap" class="form-control"  placeholder="vd: 7">
+        <button id="btnTienCap" class="btn btn-info" onclick="tinhTienCap()">Tiền Cáp Cần Phải Trả</button>
+        <div id="xuatTienCap" class="globalPrint"></div>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

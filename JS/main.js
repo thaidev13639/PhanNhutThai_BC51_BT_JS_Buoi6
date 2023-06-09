@@ -103,16 +103,16 @@ function tinhTienDien() {
     var contentTD = "";
     var numFormat = new Intl.NumberFormat("VN-vn");
     // console.log(tenHo);
-    if (0 < soKw && soKw <= 50){
+    if (0 < soKw && soKw <= 50) {
         tongTienKw = soKw * 500;
-    } else if (50 < soKw && soKw <= 100){
-        tongTienKw = (50*500) + (soKw - 50)*650;
-    } else if (100 < soKw && soKw <= 200){
-        tongTienKw = (50*500) + (50*650) + (soKw - 100)*850;
-    } else if (200 < soKw && soKw <= 350){
-        tongTienKw = (50*500) + (50*650) + (100*850) + (soKw - 200)*1100;
-    } else if (soKw > 350){
-        tongTienKw = (50*500) + (50*650) + (100*850) + (150*1100) + (soKw - 350)*1300;
+    } else if (50 < soKw && soKw <= 100) {
+        tongTienKw = (50 * 500) + (soKw - 50) * 650;
+    } else if (100 < soKw && soKw <= 200) {
+        tongTienKw = (50 * 500) + (50 * 650) + (soKw - 100) * 850;
+    } else if (200 < soKw && soKw <= 350) {
+        tongTienKw = (50 * 500) + (50 * 650) + (100 * 850) + (soKw - 200) * 1100;
+    } else if (soKw > 350) {
+        tongTienKw = (50 * 500) + (50 * 650) + (100 * 850) + (150 * 1100) + (soKw - 350) * 1300;
     } else {
         alert("Vui Lòng Nhập Đúng Dữ Liệu");
     }
@@ -141,9 +141,9 @@ function tinhTienDien() {
  * Output: 
  * - xuất: thuNhapCaNhan 
  *            Thuế Thu Nhập Cá Nhân Phải Chịu là : 20tr vnđ 1.000tr vnđ
- */ 
+ */
 
-function thueCaNhan(){
+function thueCaNhan() {
     var hoVaTen = domGetEl("hoVaTen").value;
     var thuNhapNam = domGetEl("thuNhapNam").value * 1;
     var soNguoiPhuThuoc = domGetEl("soNguoiPhuThuoc").value * 1;
@@ -154,26 +154,26 @@ function thueCaNhan(){
     // console.log(thuNhapNam);
     thuNhapChiuThue = thuNhapNam - 4 - (soNguoiPhuThuoc * 1.6);
 
-    if (thuNhapChiuThue <= 60){
+    if (thuNhapChiuThue <= 60) {
         thuNhapCaNhan = thuNhapChiuThue * 0.05;
-    } else if(60 < thuNhapChiuThue && thuNhapChiuThue <= 120){
+    } else if (60 < thuNhapChiuThue && thuNhapChiuThue <= 120) {
         thuNhapCaNhan = (60 * 0.05) + (thuNhapChiuThue - 60) * 0.1;
-    } else if(120 < thuNhapChiuThue && thuNhapChiuThue <= 210){
-        thuNhapCaNhan = (60 * 0.05) + (60 * 0.1) + (thuNhapChiuThue -120) * 0.15;
-    }  else if(210 < thuNhapChiuThue && thuNhapChiuThue <= 384){
+    } else if (120 < thuNhapChiuThue && thuNhapChiuThue <= 210) {
+        thuNhapCaNhan = (60 * 0.05) + (60 * 0.1) + (thuNhapChiuThue - 120) * 0.15;
+    } else if (210 < thuNhapChiuThue && thuNhapChiuThue <= 384) {
         thuNhapCaNhan = (60 * 0.05) + (60 * 0.1) + (90 * 0.15) + (thuNhapChiuThue - 210) * 0.2;
-    } else if(384 < thuNhapChiuThue && thuNhapChiuThue <= 624){
-        thuNhapCaNhan = (60 * 0.05) + (60 * 0.1) + (90 * 0.15) + (174 * 0.2) + (thuNhapChiuThue - 384) * 0.25 ;
-    } else if(624 < thuNhapChiuThue && thuNhapChiuThue <= 960){
-        thuNhapCaNhan = (60 * 0.05) + (60 * 0.1) + (90 * 0.15) + (174 * 0.2) + (240 * 0.25) + (thuNhapChiuThue - 624) * 0.3 ;
-    } else if(960 < thuNhapChiuThue){
-        thuNhapCaNhan = (60 * 0.05) + (60 * 0.1) + (90 * 0.15) + (174 * 0.2) + (336 * 0.3) + (thuNhapChiuThue - 960) * 0.35 ;
+    } else if (384 < thuNhapChiuThue && thuNhapChiuThue <= 624) {
+        thuNhapCaNhan = (60 * 0.05) + (60 * 0.1) + (90 * 0.15) + (174 * 0.2) + (thuNhapChiuThue - 384) * 0.25;
+    } else if (624 < thuNhapChiuThue && thuNhapChiuThue <= 960) {
+        thuNhapCaNhan = (60 * 0.05) + (60 * 0.1) + (90 * 0.15) + (174 * 0.2) + (240 * 0.25) + (thuNhapChiuThue - 624) * 0.3;
+    } else if (960 < thuNhapChiuThue) {
+        thuNhapCaNhan = (60 * 0.05) + (60 * 0.1) + (90 * 0.15) + (174 * 0.2) + (336 * 0.3) + (thuNhapChiuThue - 960) * 0.35;
     } else {
         alert("Vui Lòng Nhập Chính Xác Số Tiền");
-    } ;
+    };
 
     contentThue += "<p> Họ Và Tên : " + hoVaTen + "</p>";
-    contentThue += "<p> Thuế Thu Nhập Cá Nhân Phải Chi Trả : " + numFormat.format(parseFloat(thuNhapCaNhan*1000000)) + " VNĐ</p>";
+    contentThue += "<p> Thuế Thu Nhập Cá Nhân Phải Chi Trả : " + numFormat.format(parseFloat(thuNhapCaNhan * 1000000)) + " VNĐ</p>";
     domGetEl("xuatThueCaNhan").innerHTML = contentThue;
 }
 
@@ -194,3 +194,61 @@ function thueCaNhan(){
  * xuất: tongChiPhiDan , tongChiPhiDN
  *  vd : Chi phí tiền cáp của khách hàng có mã số maKH là : 240$ 
  */
+
+domGetEl("loaiKH").onclick = function () {
+    // console.log("123");
+    var nhaDan = domGetEl("nhaDan");
+    var divKetNoi = domGetEl("divKetNoi");
+
+    if (nhaDan.checked === true) {
+        divKetNoi.style.display = "none";
+    } else {
+        divKetNoi.style.display = "block";
+    };
+}
+
+function tinhTienCap() {
+    // console.log("123");
+    var maKH = domGetEl("maKH").value;
+    var loaiKH = domGetEl("loaiKH").value;
+    // var nhaDan = domGetEl("nhaDan");
+    // var doanhNghiep = domGetEl("doanhNghiep");
+
+    var soKetNoi = domGetEl("soKetNoi").value * 1;
+    var soKenhCaoCap = domGetEl("soKenhCaoCap").value * 1;
+    var contentTCap = "";
+    var tongchiPhiCap = 0;
+    // Dân
+    var phiHdDan = 4.5;
+    var phiCanBanDan = 20.5;
+    var phiCaoCapDan = 7.5 * soKenhCaoCap;
+
+    // Doanh Nghiệp
+    var phiHdDN = 15;
+    var phiCanBanDN = 0;
+    var phiCaoCapDN = 50 * soKenhCaoCap;
+    // 75 + (soKetNoi - 10)*5 ;
+
+
+    if (loaiKH == "ND") {
+        tongchiPhiCap = phiHdDan + phiCanBanDan + phiCaoCapDan;
+        loaiKH = "Nhà Dân";
+    } else if (loaiKH == "DN") {
+        if (soKetNoi > 10) {
+            phiCanBanDN = 75 + (soKetNoi - 10) * 5;
+        } else {
+            alert("Vui Lòng Nhập Đúng");
+        };
+        tongchiPhiCap = phiHdDN + phiCanBanDN + phiCaoCapDN;
+        loaiKH = "Doanh Nghiệp";
+    } else {
+        alert("Vui Lòng Nhập Đúng Thông Tin");
+    };
+
+    contentTCap += "<p> Khách Hàng Có Mã KH là : " + maKH + "</p>";
+    contentTCap += "<p> Loại Khách Hàng : " + loaiKH + "</p>";
+    contentTCap += "<p> Tổng Tiền Cáp Cần Phải Trả : " + tongchiPhiCap + "$</p>";
+    // console.log(contentTCap);
+
+    domGetEl("xuatTienCap").innerHTML = contentTCap;
+}
