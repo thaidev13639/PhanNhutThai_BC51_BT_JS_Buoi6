@@ -82,16 +82,18 @@
         <div class="form-group">
             <label> Loại Khách Hàng </label>
             <select class="form-control" id="loaiKH">
+                <option value="KH">Vui-Lòng-Chọn-Loại-KH</option>
                 <option id="nhaDan" value="ND">Nhà Dân</option>
                 <option id="doanhNghiep" value="DN">Doanh Nghiệp</option>
             </select>
         </div>
-        <label for="">Số Kết Nối</label>
         <div id="divKetNoi">
-            <input type="number" id="soKetNoi" class="form-control" placeholder="vd: 15 (tức 15 kết nối và tối thiểu là 10 kết nối)">
+            <label for="">Số Kết Nối</label>
+            <input type="number" id="soKetNoi" class="form-control"
+                placeholder="vd: 15 (tức 15 kết nối và tối thiểu là 10 kết nối)">
         </div>
         <label for="">Số Kênh Cao Cấp (dành cho doanh nghiệp)</label>
-        <input type="number" id="soKenhCaoCap" class="form-control"  placeholder="vd: 7">
+        <input type="number" id="soKenhCaoCap" class="form-control" placeholder="vd: 7">
         <button id="btnTienCap" class="btn btn-info" onclick="tinhTienCap()">Tiền Cáp Cần Phải Trả</button>
         <div id="xuatTienCap" class="globalPrint"></div>
     </div>

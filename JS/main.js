@@ -16,46 +16,54 @@ function domGetEl(id) {
  *          50 điểm , Đậu.
  * 
  */
-
-
-
+function diemKhuVucUuTien(a, b) {
+    var b = 0;
+    if (a == "A") {
+        b = 2;
+    } else if (a == "B") {
+        b = 1;
+    } else if (a == "C") {
+        b = 0.5;
+    } else {
+        b = 0;
+    }
+    return b;
+    // console.log(diemKVUuTien);
+}
+function diemDoiTuongUuTien(c, d) {
+    var d = 0;
+    if (c == "1") {
+        d = 2.5;
+    } else if (c == "2") {
+        d = 1.5;
+    } else if (c == "3") {
+        d = 1;
+    } else {
+        d = 0;
+    }
+    return d;
+    // console.log(diemDoiTuongUT);
+}
 function tinhDiemTuyenSinh() {
     var monToan = domGetEl("monToan").value * 1;
     var monVan = domGetEl("monVan").value * 1;
     var monAnh = domGetEl("monAnh").value * 1;
     var diemChuan = domGetEl("diemChuan").value * 1;
-    var diemKVUuTien = 0;
-    var diemDoiTuongUT = 0;
+
     var khuVucUT = domGetEl("khuVucUT").value;
     var doiTuongUT = domGetEl("doiTuongUT").value;
+
+    var diemKVUuTien = 0;
+    var diemDoiTuongUT = 0;
     var diemTongKet = 0;
     var content = "";
 
+    diemKVUuTien = diemKhuVucUuTien(khuVucUT, diemKVUuTien);
 
-    if (khuVucUT == "A") {
-        diemKVUuTien += 2;
-    } else if (khuVucUT == "B") {
-        diemKVUuTien += 1;
-    } else if (khuVucUT == "C") {
-        diemKVUuTien = 0.5;
-    } else {
-        diemKVUuTien += 0;
-    }
-    console.log(diemKVUuTien);
-
-    if (doiTuongUT == "1") {
-        diemDoiTuongUT = 2.5;
-    } else if (doiTuongUT == "2") {
-        diemDoiTuongUT = 1.5;
-    } else if (doiTuongUT == "3") {
-        diemDoiTuongUT = 1;
-    } else {
-        diemDoiTuongUT = 0;
-    }
-    console.log(diemDoiTuongUT);
+    diemDoiTuongUT = diemDoiTuongUuTien(doiTuongUT, diemDoiTuongUT);
 
     diemTongKet = monToan + monVan + monAnh + diemKVUuTien + diemDoiTuongUT;
-    console.log(diemTongKet);
+    // console.log(diemTongKet);
 
     if (diemTongKet >= diemChuan) {
         if (monToan > 0 && monVan > 0 && monAnh > 0) {
@@ -94,7 +102,23 @@ function tinhDiemTuyenSinh() {
  *        Họ và Tên : Nguyễn Văn A
  *        Tổng Tiền Thanh Toán Kỳ này là : 300.000 vnđ
  */
-
+function congThucTinhTienDien(x,y){
+    var y = 0;
+    if (0 < x && x <= 50) {
+        y = x * 500;
+    } else if (50 < x && x <= 100) {
+        y = (50 * 500) + (x - 50) * 650;
+    } else if (100 < x && x <= 200) {
+        y = (50 * 500) + (50 * 650) + (x - 100) * 850;
+    } else if (200 < x && x <= 350) {
+        y = (50 * 500) + (50 * 650) + (100 * 850) + (x - 200) * 1100;
+    } else if (x > 350) {
+        y = (50 * 500) + (50 * 650) + (100 * 850) + (150 * 1100) + (x - 350) * 1300;
+    } else {
+        alert("Vui Lòng Nhập Đúng Dữ Liệu");
+    }
+    return y;
+}
 function tinhTienDien() {
     // console.log("123")
     var tenHo = domGetEl("tenHo").value;
@@ -103,19 +127,8 @@ function tinhTienDien() {
     var contentTD = "";
     var numFormat = new Intl.NumberFormat("VN-vn");
     // console.log(tenHo);
-    if (0 < soKw && soKw <= 50) {
-        tongTienKw = soKw * 500;
-    } else if (50 < soKw && soKw <= 100) {
-        tongTienKw = (50 * 500) + (soKw - 50) * 650;
-    } else if (100 < soKw && soKw <= 200) {
-        tongTienKw = (50 * 500) + (50 * 650) + (soKw - 100) * 850;
-    } else if (200 < soKw && soKw <= 350) {
-        tongTienKw = (50 * 500) + (50 * 650) + (100 * 850) + (soKw - 200) * 1100;
-    } else if (soKw > 350) {
-        tongTienKw = (50 * 500) + (50 * 650) + (100 * 850) + (150 * 1100) + (soKw - 350) * 1300;
-    } else {
-        alert("Vui Lòng Nhập Đúng Dữ Liệu");
-    }
+    
+    tongTienKw = congThucTinhTienDien(soKw,tongTienKw);
 
     contentTD += "<p> Chủ Hộ : " + tenHo + "</p>"
     contentTD += "<p> Tổng Chi Phí Tiền Điện Phải Trả : " + numFormat.format(tongTienKw) + " vnđ </p>"
@@ -142,38 +155,42 @@ function tinhTienDien() {
  * - xuất: thuNhapCaNhan 
  *            Thuế Thu Nhập Cá Nhân Phải Chịu là : 20tr vnđ 1.000tr vnđ
  */
-
+function congThucTinhThue(u,i){
+    var i = 0
+    if (u <= 60) {
+        i = u * 0.05;
+    } else if (60 < u && u <= 120) {
+        i = (60 * 0.05) + (u - 60) * 0.1;
+    } else if (120 < u && u <= 210) {
+        i = (60 * 0.05) + (60 * 0.1) + (u - 120) * 0.15;
+    } else if (210 < u && u <= 384) {
+        i = (60 * 0.05) + (60 * 0.1) + (90 * 0.15) + (u - 210) * 0.2;
+    } else if (384 < u && u <= 624) {
+        i = (60 * 0.05) + (60 * 0.1) + (90 * 0.15) + (174 * 0.2) + (u - 384) * 0.25;
+    } else if (624 < u && u <= 960) {
+        i = (60 * 0.05) + (60 * 0.1) + (90 * 0.15) + (174 * 0.2) + (240 * 0.25) + (u - 624) * 0.3;
+    } else if (960 < u) {
+        i = (60 * 0.05) + (60 * 0.1) + (90 * 0.15) + (174 * 0.2) + (336 * 0.3) + (u - 960) * 0.35;
+    } else {
+        alert("Vui Lòng Nhập Chính Xác Số Tiền");
+    };
+    return i;
+}
 function thueCaNhan() {
     var hoVaTen = domGetEl("hoVaTen").value;
     var thuNhapNam = domGetEl("thuNhapNam").value * 1;
     var soNguoiPhuThuoc = domGetEl("soNguoiPhuThuoc").value * 1;
     var thuNhapChiuThue = 0;
-    var thuNhapCaNhan = 0;
+    var thuePhaiTra = 0;
     var numFormat = new Intl.NumberFormat("VN-vn");
     var contentThue = "";
     // console.log(thuNhapNam);
     thuNhapChiuThue = thuNhapNam - 4 - (soNguoiPhuThuoc * 1.6);
 
-    if (thuNhapChiuThue <= 60) {
-        thuNhapCaNhan = thuNhapChiuThue * 0.05;
-    } else if (60 < thuNhapChiuThue && thuNhapChiuThue <= 120) {
-        thuNhapCaNhan = (60 * 0.05) + (thuNhapChiuThue - 60) * 0.1;
-    } else if (120 < thuNhapChiuThue && thuNhapChiuThue <= 210) {
-        thuNhapCaNhan = (60 * 0.05) + (60 * 0.1) + (thuNhapChiuThue - 120) * 0.15;
-    } else if (210 < thuNhapChiuThue && thuNhapChiuThue <= 384) {
-        thuNhapCaNhan = (60 * 0.05) + (60 * 0.1) + (90 * 0.15) + (thuNhapChiuThue - 210) * 0.2;
-    } else if (384 < thuNhapChiuThue && thuNhapChiuThue <= 624) {
-        thuNhapCaNhan = (60 * 0.05) + (60 * 0.1) + (90 * 0.15) + (174 * 0.2) + (thuNhapChiuThue - 384) * 0.25;
-    } else if (624 < thuNhapChiuThue && thuNhapChiuThue <= 960) {
-        thuNhapCaNhan = (60 * 0.05) + (60 * 0.1) + (90 * 0.15) + (174 * 0.2) + (240 * 0.25) + (thuNhapChiuThue - 624) * 0.3;
-    } else if (960 < thuNhapChiuThue) {
-        thuNhapCaNhan = (60 * 0.05) + (60 * 0.1) + (90 * 0.15) + (174 * 0.2) + (336 * 0.3) + (thuNhapChiuThue - 960) * 0.35;
-    } else {
-        alert("Vui Lòng Nhập Chính Xác Số Tiền");
-    };
+    thuePhaiTra = congThucTinhThue(thuNhapChiuThue,thuePhaiTra);
 
     contentThue += "<p> Họ Và Tên : " + hoVaTen + "</p>";
-    contentThue += "<p> Thuế Thu Nhập Cá Nhân Phải Chi Trả : " + numFormat.format(parseFloat(thuNhapCaNhan * 1000000)) + " VNĐ</p>";
+    contentThue += "<p> Thuế Thu Nhập Cá Nhân Phải Chi Trả : " + numFormat.format(parseFloat(thuePhaiTra * 1000000)) + " VNĐ</p>";
     domGetEl("xuatThueCaNhan").innerHTML = contentThue;
 }
 
@@ -197,10 +214,10 @@ function thueCaNhan() {
 
 domGetEl("loaiKH").onclick = function () {
     // console.log("123");
-    var nhaDan = domGetEl("nhaDan");
+    var loaiKH = domGetEl("loaiKH").value;
     var divKetNoi = domGetEl("divKetNoi");
 
-    if (nhaDan.checked === true) {
+    if (loaiKH == "ND") {
         divKetNoi.style.display = "none";
     } else {
         divKetNoi.style.display = "block";
